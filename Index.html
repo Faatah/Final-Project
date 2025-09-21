@@ -11,16 +11,21 @@
 
     <!-- header -->
      <header>
+        <div class="hamburger">
+            <i class="fa-solid fa-bars-staggered" data-visible="true"></i>
+            <i class="fa-solid fa-close" data-visible="false"></i>
+        </div>
     <!-- main container site header -->
     <div class="header-container">
 
-       
-        <!-- Desktop Nav Menu (logo , menu links and button) -->
-        <div class="desktop-nav">
-            <!-- Logo site -->
+        <!-- Logo site -->
             <div class="logo">
                 <a href="Index.html">Training <span> Studio</span></a>
             </div>
+
+       
+        <!-- Desktop Nav Menu (logo , menu links and button) -->
+        <nav class="desktop-nav"> 
             <!-- menu links -->
            <div class="menu-link">
 
@@ -33,23 +38,22 @@
             </ul>
            </div>
            <button class="btn sign-desk">Sign Up</button>
-        </div> 
+        </nav> 
 <!-- Mobile menu  -->
-        <div class="mobile-menu">
+        <nav class="mobile-menu" data-visible="false">    
             <!-- mobile menu links -->
              <div class="menu-link">
 
              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Classes</a></li>
-                <li><a href="#">schedules</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="#choose-program">About</a></li>
+                <li><a href="#our-classes">Classes</a></li>
+                <li><a href="#schedule">schedules</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
            </div>
            <button class="btn sign-mobile">Sign Up</button>
-           </div>              
-        
+        </nav>              
     </div>
     
      </header>
@@ -341,7 +345,8 @@
                         </div>
                         <div class="input-2">
                             <input type="text" name="subject" placeholder="Subject">
-                            <input class="message" type="text" name="message" placeholder="message">
+                            <textarea name="message" class="message" placeholder="Message"></textarea>
+                            <!-- <input class="message" textarea="text" name="message" placeholder="message"> -->
                         </div>
                         <button class="btn form-btn">Send Message</button>
                         </form>
@@ -359,6 +364,33 @@
                </footer>
 
                
+
+
+
+               <!-- script -->
+
+     <script>
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const icons = document.querySelectorAll("i");
+
+        hamburger.addEventListener("click", function (event) {
+            const isVisible = mobileMenu.getAttribute('data-visible');
+            if (isVisible == "true") {
+                // qari hiding
+                mobileMenu.setAttribute('data-visible', "false");
+                icons[0].setAttribute('data-visible', "true");
+                icons[1].setAttribute('data-visible', "false");
+            } else if (isVisible == "false") {
+                // soo bandhig showing
+                mobileMenu.setAttribute('data-visible', "true");
+                icons[0].setAttribute('data-visible', "false");
+                icons[1].setAttribute('data-visible', "true");
+            }
+        });
+
+
+    </script>
     
 </body>
 </html> 
